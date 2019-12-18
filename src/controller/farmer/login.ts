@@ -24,16 +24,17 @@ export async function login(req: Request, res: Response, next: NextFunction) {
       });
 
     // record exists match password
-    logger.debug(email)
-    logger.debug(password)
-    logger.debug(farmerRecord)
+    logger.debug(email);
+    logger.debug(password);
+    logger.debug(farmerRecord);
     const isMatch = await comparePassword(password, farmerRecord.password);
     logger.debug("password match status : %o", isMatch);
     if (!isMatch)
       return res.status(401).json({
         message: `Password do not match`,
         data: {
-          email
+          email,
+          id: farmerRecord._id
         }
       });
     else

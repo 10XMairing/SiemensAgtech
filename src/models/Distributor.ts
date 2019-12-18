@@ -5,8 +5,13 @@ import config from "../config";
 export interface IDistributorModel {
   firstName: string;
   lastName: string;
-  businessName : string,
+  businessName: string;
+  storageCapacity: number;
+  acceptedCrops: string[];
+  baseRate: number; // rs per day per 1000kg,
+  isAvailable: boolean;
   email: string;
+  phone: string;
   password: string;
   updatedAt: Date;
   createdAt: Date;
@@ -19,8 +24,25 @@ const DistributorSchema = new mongoose.Schema(
     firstName: { type: String },
     lastName: { type: String },
     businessName: { type: String },
-    email: { type: String, required: true, unique : true },
-    password: { type: String, required: true }
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true
+    },
+    phone: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    isAvailable: { type: Boolean, default: true },
+    acceptedCrops: [
+      {
+        name: { type: String, required: true, lowercase: true },
+        rate: {
+          type: Number,
+          required: true
+        }
+      }
+    ]
   },
   {
     timestamps: true
@@ -48,4 +70,7 @@ DistributorSchema.pre("save", function(next) {
   });
 });
 
-export default mongoose.model<IDistributorDoc>("Distributor", DistributorSchema);
+export default mongoose.model<IDistributorDoc>(
+  "Distributor",
+  DistributorSchema
+);

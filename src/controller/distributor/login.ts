@@ -1,7 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import BusinessModel from "../../models/Business";
+import DistributorModel from "../../models/Distributor";
 
 import { comparePassword, generateToken } from "../../utils";
+import { Logger } from "winston";
+import { Container } from "typedi";
+
+const logger: Logger = Container.get("logger");
 
 // inputs email , password
 
@@ -9,20 +13,18 @@ export async function login(req: Request, res: Response, next: NextFunction) {
   try {
     const { email, password } = req.body;
 
-    const businessRecord = await BusinessModel.findOne({ email });
+    const distRecord = await DistributorModel.findOne({ email });
 
-    if (!businessRecord)
+    if (!distRecord)
       return res.status(400).json({
-        message: `Business record does not exist with given email ${email}`,
+        message: `Distributor record does not exist with given email ${email}`,
         data: {
           email,
-          id: businessRecord._id
+          id: distRecord._id
         }
       });
 
-    // record exists match password
-
-    const isMatch = await comparePassword(password, businessRecord.password);
+    const isMatch = await comparePassword(password, distRecord.password);
 
     if (!isMatch)
       return res.status(401).json({
@@ -35,9 +37,9 @@ export async function login(req: Request, res: Response, next: NextFunction) {
       return res.status(200).json({
         message: "Authenticated",
         token: generateToken({
-          _id: businessRecord.id,
+          _id: distRecord.id,
           email,
-          type: "business"
+          type: "distributor"
         }),
         data: {
           email

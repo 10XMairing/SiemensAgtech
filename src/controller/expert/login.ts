@@ -15,7 +15,8 @@ export async function login(req: Request, res: Response, next: NextFunction) {
       return res.status(400).json({
         message: `Expert record does not exist with given email ${email}`,
         data: {
-          email
+          email,
+          id: expertRecord._id
         }
       });
 
