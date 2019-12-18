@@ -1,0 +1,16 @@
+import * as mongoose from "mongoose";
+import { ICropTypeModel } from "../interface/ICropType";
+
+export interface CropTypeDoc extends mongoose.Document, ICropTypeModel {}
+
+const CropTypeSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true }
+} , {
+    timestamps : true
+});
+
+
+
+
+export default mongoose.model<CropTypeDoc>("CropType" , CropTypeSchema)
