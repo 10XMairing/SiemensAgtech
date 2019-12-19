@@ -10,10 +10,11 @@ const logger: Logger = Container.get("logger");
 export interface IFarmerModel {
   firstName: string;
   lastName: string;
-  bio: string;
+
   email: string;
   password: string;
   profileImage: string;
+  bio: string;
   location: string;
   updatedAt: Date;
   createdAt: Date;
@@ -55,10 +56,6 @@ FarmerSchema.pre("save", function(next) {
 
       // override the cleartext password with the hashed one
       user["password"] = hash;
-      const cart = await new ProductCart({ farmer: user["_id"] }).save();
-
-      user["productCart"] = cart._id;
-      logger.debug("cart created");
       next();
     });
   });

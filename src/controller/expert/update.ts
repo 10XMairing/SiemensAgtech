@@ -9,16 +9,16 @@ export async function updateExpertProfile(
 ) {
   try {
     // requires farmer auth
-    const farmer = req["userData"]._id;
+    const expert = req["userData"]._id;
 
     const data = req.body; //data must have firstName , lastName , location, profileImage
-    const farmerDoc = await ExpertModel.findByIdAndUpdate(farmer, {
+    const expertDoc = await ExpertModel.findByIdAndUpdate(expert, {
       ...data
     });
 
     return res.status(200).json({
-      message: "Farmer profile updated",
-      farmer,
+      message: "Expert profile updated",
+      expert,
       keys: Object.keys(data)
     });
   } catch (err) {

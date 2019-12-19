@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import ExpertModel from "../../models/Expert";
-import {generateToken} from "../../utils"
+import { generateToken } from "../../utils";
 // inputs email , password
 
 export async function register(
@@ -9,11 +9,10 @@ export async function register(
   next: NextFunction
 ) {
   try {
-    const { email, password } = req.body;
+    const data = req.body;
 
     const expert = new ExpertModel({
-      email,
-      password
+      ...data
     });
 
     const expertDoc = await expert.save();

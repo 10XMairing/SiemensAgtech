@@ -7,9 +7,12 @@ export interface IBusinessModel {
   lastName: string;
   email: string;
   password: string;
+  profileImage: string;
+  bio: string;
+  location: string;
+
   updatedAt: Date;
   createdAt: Date;
-  
 }
 
 export interface IBusinessDoc extends IBusinessModel, mongoose.Document {}
@@ -19,7 +22,10 @@ const IBusinessSchema = new mongoose.Schema(
     firstName: { type: String },
     lastName: { type: String },
     email: { type: String, required: true, unique: true, index: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    bio: { type: String },
+    profileImage: { type: String },
+    location: { type: String }
   },
   {
     timestamps: true

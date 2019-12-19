@@ -17,18 +17,39 @@ export async function getAll(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-
 export async function getById(req: Request, res: Response, next: NextFunction) {
   try {
     const _id = req.params.id;
 
-    const expertDoc = await ExpertModel.findOne({_id }, { password: 0 });
+    const expertDoc = await ExpertModel.findOne({ _id }, { password: 0 });
 
-    if(!expertDoc)
+    if (!expertDoc)
       return res.status(400).json({
-        message : "Expert with given id doesnot exist",
-        id : _id
-      })
+        message: "Expert with given id doesnot exist",
+        id: _id
+      });
+
+    return res.status(200).json(expertDoc);
+  } catch (err) {
+    req["status"] = 400;
+    next(err);
+  }
+}
+
+export async function getExpertByToken(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const _id = req["userData"]._id;
+    const expertDoc = await ExpertModel.findOne({ _id }, { password: 0 });
+
+    if (!expertDoc)
+      return res.status(400).json({
+        message: "Expert with given id doesnot exist",
+        id: _id
+      });
 
     return res.status(200).json(expertDoc);
   } catch (err) {
