@@ -3,8 +3,7 @@ import { Logger } from "winston";
 import { Container } from "typedi";
 import ProductModel from "./Product";
 
-import * as fs from "fs";
-import * as path from "path";
+import prices from "../data/prices";
 
 const logger: Logger = Container.get("logger");
 
@@ -46,9 +45,6 @@ DistRequestSchema.pre("save", function(next) {
   const request = this;
   const name = request["cropName"];
   const quantity = request["quantity"];
-
-  let rawdata = fs.readFileSync(path.join(__dirname, "../data/prices.json"));
-  let prices: Object = JSON.parse(rawdata.toString());
 
   if (!prices.hasOwnProperty(name))
     next(
