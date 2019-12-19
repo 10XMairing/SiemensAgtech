@@ -4,3 +4,27 @@
 {"message":"mongoose loaded","level":"info","timestamp":"2019-12-07 23:24:50"}
 {"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-07 23:24:50"}
 {"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-07 23:24:50"}
+{"message":" 👽  Starting server in production mode   👽 ","level":"info","timestamp":"2019-12-19 08:40:30"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 08:40:30"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 08:40:30"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 08:40:30"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 08:40:30"}
+{"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-19 08:40:30"}
+{"message":" 👽  Starting server in production mode   👽 ","level":"info","timestamp":"2019-12-19 08:41:59"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 08:41:59"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 08:42:00"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 08:42:00"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 08:42:00"}
+{"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-19 08:42:00"}
+{"message":" 👽  Starting server in production mode   👽 ","level":"info","timestamp":"2019-12-19 08:56:07"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 08:56:07"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 08:56:07"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 08:56:10"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 08:56:10"}
+{"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-19 08:56:10"}
+{"message":" 👽  Starting server in production mode   👽 ","level":"info","timestamp":"2019-12-19 08:57:47"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 08:57:47"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 08:57:47"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 08:57:50"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 08:57:50"}
+{"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-19 08:57:50"}

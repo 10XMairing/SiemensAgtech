@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const config_1 = require("../config");
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -13,6 +15,18 @@ const UserSchema = new mongoose.Schema({
         lowercase: true,
         unique: true,
         index: true
+    },
+    address: {
+        type: String,
+        default: ""
+    },
+    pin: {
+        type: Number,
+        default: -1
+    },
+    phone: {
+        type: Number,
+        default: -1
     },
     password: { type: String, required: true }
 }, {
@@ -37,21 +51,25 @@ UserSchema.pre("save", function (next) {
         });
     });
 });
-UserSchema.methods.comparePassword = function (candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-        if (err)
-            return cb(err);
-        cb(null, isMatch);
-    });
-};
-UserSchema.methods.getPublicFields = function () {
-    return {
-        _id: this._id,
-        username: this.username,
+UserSchema.methods.generateToken = function () {
+    const token = jwt.sign({
         email: this.email,
-        createdAt: this.createdAt,
-        updatedAt: this.updatedAt
-    };
+        username: this.username,
+        _id: this._id
+    }, config_1.default.JWT_AUTH_USER);
+    return token;
+};
+UserSchema.methods.comparePassword = function (comparePassword) {
+    return new Promise((resolve, reject) => {
+        bcrypt
+            .compare(comparePassword, this.password)
+            .then(isMatch => {
+            resolve(isMatch);
+        })
+            .catch(err => {
+            reject(err);
+        });
+    });
 };
 exports.default = mongoose.model("User", UserSchema);
 //# sourceMappingURL=User.js.map

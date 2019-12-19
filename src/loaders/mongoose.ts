@@ -6,7 +6,8 @@ export default async function() {
   let url;
   if (env == "production") {
     //   prod
-    url = "mongodb://localhost:27017/node-temp-prod";
+
+    url = `mongodb://${config.MLAB_USER}:${config.MLAB_PASSWORD}@ds141185.mlab.com:41185/agtech-db`;
   } else if (env == "development") {
     //   dev
     url = "mongodb://localhost:27017/node-agtech-dev";

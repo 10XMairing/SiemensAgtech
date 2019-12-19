@@ -9,8 +9,13 @@ exports.default = {
         level: process.env.LOG_LEVEL || "silly"
     },
     SALT_ROUNDS: process.env.SALT_ROUNDS || 12,
-    JWT_AUTH_USER: process.env.JWT_AUTH_USER,
-    JWT_AUTH_ADMIN: process.env.JWT_AUTH_ADMIN,
+    DB_MIGRAGE_OPTION: process.env.DB_MIGRATE || "none",
+    JWT_AUTH_USER: process.env.JWT_AUTH_USER || "test_user_jwt",
+    JWT_AUTH_FARMER: process.env.JWT_AUTH_FARMER || "test_farmer_jwt",
+    JWT_AUTH_EXPERT: process.env.JWT_AUTH_EXPERT || "test_expert_jwt",
+    JWT_AUTH_BUSINESS: process.env.JWT_AUTH_BUSINESS || "test_business_jwt",
+    JWT_AUTH_ADMIN: process.env.JWT_AUTH_ADMIN || "test-admin_jwt",
+    JWT_AUTH_DISTRIBUTOR: process.env.JWT_AUTH_DISTRIBUTOR || "test_dist_jwt_dev",
     MLAB_USER: process.env.MLAB_USER,
     MLAB_PASSWORD: process.env.MLAB_PASSWORD,
     CONFIRM_EMAIL_KEY: process.env.CONFIRM_EMAIL_KEY

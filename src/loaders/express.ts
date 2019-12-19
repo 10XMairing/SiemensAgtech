@@ -24,7 +24,7 @@ export default function(app: Express) {
 
   app.get("/", (req, res, next) => {
     return res.status(200).json({
-      message: "Hello Node Template!"
+      message: "Hello Agtech api server! Lets Start!"
     });
   });
 

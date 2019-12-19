@@ -20,7 +20,7 @@ function default_1(app) {
     require("../api/v1").default(app);
     app.get("/", (req, res, next) => {
         return res.status(200).json({
-            message: "Hello Node Template!"
+            message: "Hello Agtech api server! Lets Start!"
         });
     });
     app.use(celebrate_1.errors());
