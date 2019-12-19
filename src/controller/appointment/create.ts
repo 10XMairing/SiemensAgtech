@@ -8,7 +8,7 @@ export async function create(req: Request, res: Response, next: NextFunction) {
     const farmer = req["userData"]._id; //farmer must be authenticated
     const expert = req.params.expert; //params must give expert id
 
-    const data = req.body; //price and location
+    const data = req.body; //price,location,description
 
     const appointment = new AppointmentModel({
       farmer,

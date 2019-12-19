@@ -3,6 +3,10 @@ import ExpertModel from "../../models/Expert";
 import { generateToken } from "../../utils";
 // inputs email , password
 
+import { Container } from "typedi";
+import EmailService from "../../services/EmailService";
+const emailIns = Container.get(EmailService);
+
 export async function register(
   req: Request,
   res: Response,
@@ -24,6 +28,13 @@ export async function register(
       _id: expertDoc._id,
       email: expertDoc.email,
       type: "expert"
+    });
+
+    // send email to user
+    emailIns.sendMail({
+      to: expertDoc.email,
+      subject: "Registeted at agtech",
+      text: `You just registered at agtech  as a farmer with email ${expertDoc.email}`
     });
 
     return res.status(200).json({

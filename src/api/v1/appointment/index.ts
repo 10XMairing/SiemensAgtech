@@ -12,7 +12,8 @@ router.post(
   celebrate({
     body: Joi.object().keys({
       price: Joi.number().required(),
-      location: Joi.string().required()
+      location: Joi.string().required(),
+      description: Joi.string()
     })
   }),
   (req, res, next) => {

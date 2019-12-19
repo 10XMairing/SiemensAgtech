@@ -3,6 +3,11 @@ import FarmerModel from "../../models/Farmer";
 import { generateToken } from "../../utils";
 // inputs email , password
 
+import { Container } from "typedi";
+import EmailService from "../../services/EmailService";
+
+const emailIns = Container.get(EmailService);
+
 export async function register(
   req: Request,
   res: Response,
@@ -25,6 +30,13 @@ export async function register(
       _id: farmerDoc._id,
       email: farmerDoc.email,
       type: "farmer"
+    });
+
+    // send email to user
+    emailIns.sendMail({
+      to: farmerDoc.email,
+      subject: "Registeted at agtech",
+      text: `You just registered at agtech  as a farmer with email ${farmerDoc.email}`
     });
 
     return res.status(200).json({
