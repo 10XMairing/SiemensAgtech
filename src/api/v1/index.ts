@@ -10,6 +10,7 @@ import eqRequestRouter from "./eqRequest";
 import prodCartRouter from "./productCart";
 import distRouter from "./distributor";
 import distReqRouter from "./distRequest";
+import cropRouter from "./crop";
 
 export default function(app: Express) {
   app.use("/api/farmer", farmerRouter);
@@ -23,4 +24,5 @@ export default function(app: Express) {
   app.use("/api/request", eqRequestRouter);
   app.use("/api/product-cart", prodCartRouter);
   app.use("/api/dist-request", distReqRouter);
+  app.use("/api/crop", cropRouter);
 }
