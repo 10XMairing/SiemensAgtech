@@ -3,7 +3,10 @@ import { Router } from "express";
 import { celebrate, Joi } from "celebrate";
 
 import * as Controller from "../../../controller/crop";
-import { getAllDistPrices } from "../../../controller/distPrices";
+import {
+  getAllDistPrices,
+  calculateDistCost
+} from "../../../controller/distPrices";
 import { checkFarmer, checkExpert, checkBusiness } from "../../../middleware";
 const router = Router();
 
@@ -28,6 +31,18 @@ router.get("/", (req, res, next) => {
 router.get("/prices", (req, res, next) => {
   getAllDistPrices(req, res, next);
 });
+router.get(
+  "/price/predict",
+  celebrate({
+    body: Joi.object().keys({
+      name: Joi.string().required(),
+      quantity: Joi.number().required()
+    })
+  }),
+  (req, res, next) => {
+    calculateDistCost(req, res, next);
+  }
+);
 
 router.get("/farmer/me", checkFarmer, (req, res, next) => {
   Controller.getCropsForAuthenticatedFarmer(req, res, next);
