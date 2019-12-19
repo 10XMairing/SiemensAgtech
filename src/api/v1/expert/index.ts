@@ -18,7 +18,8 @@ router.post(
       lastName: Joi.string().required(),
       location: Joi.string(),
       bio: Joi.string(),
-      profileImage: Joi.string()
+      profileImage: Joi.string(),
+      expertise: Joi.string()
     })
   }),
   (req, res, next) => {
