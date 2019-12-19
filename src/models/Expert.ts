@@ -12,6 +12,10 @@ export interface IExpertModel {
   bio: string;
   location: string;
 
+  expertise: string;
+  basePrice: number;
+  qualification: string;
+
   updatedAt: Date;
   createdAt: Date;
 }
@@ -24,6 +28,9 @@ const ExpertSchema = new mongoose.Schema(
     lastName: { type: String },
     email: { type: String, required: true, unique: true },
     bio: { type: String },
+    expertise: { type: String },
+    basePrice: { type: String },
+    qualification: { type: String },
     profileImage: { type: String },
     location: { type: String },
     password: { type: String, required: true }

@@ -61,6 +61,9 @@ router.post(
 router.get("/", (req, res, next) => {
   Controller.getAll(req, res, next);
 });
+router.get("/profile/me", checkExpert, (req, res, next) => {
+  Controller.getExpertByToken(req, res, next);
+});
 
 router.get("/:id", (req, res, next) => {
   Controller.getById(req, res, next);

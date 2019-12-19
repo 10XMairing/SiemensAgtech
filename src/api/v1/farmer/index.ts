@@ -61,6 +61,9 @@ router.post(
 router.get("/", (req, res, next) => {
   Controller.getAll(req, res, next);
 });
+router.get("/profile/me", checkFarmer, (req, res, next) => {
+  Controller.getByToken(req, res, next);
+});
 
 router.get("/:id", (req, res, next) => {
   Controller.getById(req, res, next);
