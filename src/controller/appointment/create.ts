@@ -8,14 +8,13 @@ export async function create(req: Request, res: Response, next: NextFunction) {
     const farmer = req["userData"]._id; //farmer must be authenticated
     const expert = req.params.expert; //params must give expert id
 
-    const { price, location, date } = req.body;
+    const data = req.body; //price and location
 
     const appointment = new AppointmentModel({
       farmer,
       expert,
-      price,
-      location,
-      date: new Date(date)
+      ...data,
+      date: Date.now()
     });
 
     const appointmentDoc = await appointment.save();
