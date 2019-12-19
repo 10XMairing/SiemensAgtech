@@ -29,9 +29,9 @@ const FarmerSchema = new mongoose.Schema(
   {
     firstName: { type: String },
     lastName: { type: String },
-    bio: { type: String },
-    profileImage: { type: String },
-    location: { type: String },
+    bio: { type: String, default: "" },
+    profileImage: { type: String, default: "" },
+    location: { type: String, default: "" },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true }
   },

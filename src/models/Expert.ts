@@ -27,12 +27,12 @@ const ExpertSchema = new mongoose.Schema(
     firstName: { type: String },
     lastName: { type: String },
     email: { type: String, required: true, unique: true },
-    bio: { type: String },
-    expertise: { type: String },
-    basePrice: { type: String },
-    qualification: { type: String },
-    profileImage: { type: String },
-    location: { type: String },
+    bio: { type: String, default: "" },
+    expertise: { type: String, default: "" },
+    basePrice: { type: String, default: "" },
+    qualification: { type: String, default: "" },
+    profileImage: { type: String, default: "" },
+    location: { type: String, default: "" },
     password: { type: String, required: true }
   },
   {
