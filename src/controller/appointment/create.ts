@@ -1,5 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import AppointmentModel from "../../models/Appointment";
+import ExpertModel from "../../models/Expert";
+
+import eventDispatch from "event-dispatch";
 
 // inputs email , password
 
@@ -18,6 +21,11 @@ export async function create(req: Request, res: Response, next: NextFunction) {
     });
 
     const appointmentDoc = await appointment.save();
+
+    const expertDoc = await ExpertModel.findById(expert);
+
+    // send email to expert
+    eventDispatch.dispatch("appointment", expertDoc.email);
 
     return res.status(200).json({
       message: "New Appointment Created",

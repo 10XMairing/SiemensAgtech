@@ -1,6 +1,5 @@
 import * as express from "express";
 import "reflect-metadata";
-import * as dotenv from "dotenv";
 
 import Loader from "./loaders";
 
@@ -17,3 +16,5 @@ export default async function(): Promise<express.Express> {
   await LoadDependencies(app);
   return app;
 }
+
+import "./subscribers/EventHandlers";

@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import AppointmentModel from "../../models/Appointment";
-
+import FarmerModel from "../../models/Farmer";
+import eventDispatcher from "event-dispatch";
 export async function updateStatus(
   req: Request,
   res: Response,
@@ -22,7 +23,6 @@ export async function updateStatus(
         }
       });
 
-
     if (appointmentDoc.expert != expert)
       return res.status(401).json({
         message: "Given user doesnot have access to this document",
@@ -41,9 +41,14 @@ export async function updateStatus(
         }
       );
 
-    //   send email
+      //   send email
 
       const updated = await AppointmentModel.findOne({ _id: appointment });
+
+      // find farmer email
+      const farmerDoc = await FarmerModel.findById(updated.farmer);
+
+      eventDispatcher.dispatch("appointment-confirm", farmerDoc.email);
 
       return res.status(200).json({
         message: "Appointment updated",

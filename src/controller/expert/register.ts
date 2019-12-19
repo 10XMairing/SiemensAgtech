@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import ExpertModel from "../../models/Expert";
 import { generateToken } from "../../utils";
+import eventDispatcher from "event-dispatch";
 // inputs email , password
 
 import { Container } from "typedi";
@@ -31,11 +32,7 @@ export async function register(
     });
 
     // send email to user
-    emailIns.sendMail({
-      to: expertDoc.email,
-      subject: "Registeted at agtech",
-      text: `You just registered at agtech  as a farmer with email ${expertDoc.email}`
-    });
+    eventDispatcher.dispatch("signup", expertDoc.email);
 
     return res.status(200).json({
       message: "Expert registered",

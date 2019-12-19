@@ -21,6 +21,7 @@ const IAppointmentSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     date: { type: Date, required: true },
     description: { type: String, default: "" },
+    location: { type: String, required: true },
     confirmStatus: { type: Boolean, default: false }
   },
   {

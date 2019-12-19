@@ -1,12 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import FarmerModel from "../../models/Farmer";
 import { generateToken } from "../../utils";
+import eventDispatcher, { EventDispatcher } from "event-dispatch";
 // inputs email , password
 
 import { Container } from "typedi";
-import EmailService from "../../services/EmailService";
-
-const emailIns = Container.get(EmailService);
 
 export async function register(
   req: Request,
@@ -33,11 +31,7 @@ export async function register(
     });
 
     // send email to user
-    emailIns.sendMail({
-      to: farmerDoc.email,
-      subject: "Registeted at agtech",
-      text: `You just registered at agtech  as a farmer with email ${farmerDoc.email}`
-    });
+    eventDispatcher.dispatch("signup", farmerDoc.email);
 
     return res.status(200).json({
       message: "Farmer registered",
