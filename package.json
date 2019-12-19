@@ -8,7 +8,7 @@
     "coverage": "nyc -r text -e .ts -x \"src/tests/*.test.ts\" npm run test",
     "dev": "cross-env NODE_ENV=development ts-node -r dotenv/config src/index.ts",
     "build": "tsc -p .",
-    "start": "cross-env NODE_ENV=production node -r dotenv/config dist/index.js",
+    "start": "node -r dotenv/config dist/index.js",
     "start:build": "npm run build && npm run start"
   },
   "keywords": [],
