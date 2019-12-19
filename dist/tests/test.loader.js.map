@@ -1,1 +1,0 @@
-{"version":3,"file":"test.loader.js","sourceRoot":"","sources":["../../src/tests/test.loader.ts"],"names":[],"mappings":";;AAAA,gCAA+B;AAC/B,kDAAiD;AAIlC,KAAK;IAIlB,MAAM,GAAG,GAAG,MAAM,aAAS,EAAE,CAAC;IAC9B,MAAM,QAAQ,GAAG,MAAM,kBAAc,EAAE,CAAC;IAExC,OAAO,EAAE,GAAG,EAAE,MAAM,EAAE,QAAQ,CAAC,UAAU,EAAE,CAAC;AAC9C,CAAC;AARD,4BAQC"}
