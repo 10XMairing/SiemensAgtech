@@ -23,7 +23,7 @@ FarmerSchema.pre("save", function (next) {
     // only hash the password if it has been modified (or is new)
     if (!user.isModified("password"))
         return next();
-    // generate a salt 
+    // generate a salt
     bcrypt.genSalt(12, function (err, salt) {
         if (err)
             return next(err);
@@ -40,5 +40,9 @@ FarmerSchema.pre("save", function (next) {
         });
     });
 });
+FarmerSchema.methods.getFullname = function () {
+    const farmer = this;
+    return `${farmer["firstName"]} ${farmer["lastname"]}`;
+};
 exports.default = mongoose.model("Farmer", FarmerSchema);
 //# sourceMappingURL=Farmer.js.map

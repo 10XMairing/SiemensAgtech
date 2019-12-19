@@ -34,3 +34,51 @@
 {"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 09:00:58"}
 {"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 09:00:58"}
 {"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-19 09:00:58"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 06:10:51"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 06:10:51"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 06:10:51"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 06:11:23"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 06:11:23"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 06:11:23"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 11:44:34"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 11:44:34"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 11:44:34"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 11:44:34"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 11:44:34"}
+{"message":" 🔥 Listening on http://localhost:4000 🔥","level":"info","timestamp":"2019-12-19 11:44:34"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 11:46:10"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 11:46:10"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 11:46:10"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 11:46:10"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 11:46:10"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 11:46:10"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 11:51:56"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 11:51:56"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 11:51:56"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 11:51:56"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 11:51:56"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 11:51:56"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 11:53:47"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 11:53:47"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 11:53:47"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 11:53:47"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 11:53:47"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 11:53:47"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 11:54:30"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 11:54:30"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 11:54:30"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 11:54:30"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 11:54:30"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 11:54:30"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 11:54:46"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 11:54:46"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 11:54:46"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 11:54:46"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 11:54:46"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 11:54:46"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 12:20:03"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 12:20:03"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 12:20:03"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 12:20:03"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 12:20:03"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 12:20:03"}

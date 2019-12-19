@@ -4,6 +4,7 @@ const env = process.env.NODE_ENV || "development";
 exports.default = {
     BASE_URL: env == "production" ? process.env.BASE_URL : "http://localhost",
     PORT_HTTPS: process.env.PORT_HTTPS || 3000,
+    PORT: process.env.PORT || 3000,
     PORT_HTTP: process.env.PORT_HTTP || 5000,
     logs: {
         level: process.env.LOG_LEVEL || "silly"

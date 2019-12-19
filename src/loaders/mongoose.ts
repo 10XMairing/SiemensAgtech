@@ -7,13 +7,13 @@ export default async function() {
   if (env == "production") {
     //   prod
 
-    url = `mongodb://${config.MLAB_USER}:${config.MLAB_PASSWORD}@ds141185.mlab.com:41185/agtech-db`;
+    url = `mongodb://tenx:10xxpassword@ds141185.mlab.com:41185/agtech-db`;
   } else if (env == "development") {
     //   dev
     url = "mongodb://localhost:27017/node-agtech-dev";
   } else {
-    //   test
-    url = "mongodb://localhost:27017/node-temp-test";
+    //   local
+    url = "mongodb://localhost:27017/node-temp-local";
   }
 
   const mongo = await mongoose.connect(url, {

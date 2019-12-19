@@ -6,8 +6,8 @@ const winston_1 = require("./loaders/winston");
 async function startServer() {
     winston_1.default.info(` 👽  Starting server in ${process.env.NODE_ENV} mode   👽 `);
     const app = await app_1.default();
-    app.listen(process.env.PORT, () => {
-        winston_1.default.info(` 🔥 Listening on http://localhost:${config_1.default.PORT_HTTP} 🔥`);
+    app.listen(config_1.default.PORT, () => {
+        winston_1.default.info(` 🔥 Listening on http://localhost:${config_1.default.PORT} 🔥`);
     });
 }
 startServer();

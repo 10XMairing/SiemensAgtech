@@ -12,11 +12,15 @@ export interface IFarmerModel {
   lastName: string;
   email: string;
   password: string;
+  location: string;
   updatedAt: Date;
   createdAt: Date;
 }
 
-export interface IFarmerDoc extends IFarmerModel, mongoose.Document {}
+export interface IFarmerDoc extends IFarmerModel, mongoose.Document {
+  getFullname: () => string;
+  fullname: string;
+}
 
 const FarmerSchema = new mongoose.Schema(
   {
@@ -42,8 +46,8 @@ FarmerSchema.pre("save", function(next) {
   // only hash the password if it has been modified (or is new)
   if (!user.isModified("password")) return next();
 
-  // generate a salt 
-  bcrypt.genSalt(12,  function(err, salt) {
+  // generate a salt
+  bcrypt.genSalt(12, function(err, salt) {
     if (err) return next(err);
 
     // hash the password using our new salt
@@ -52,13 +56,18 @@ FarmerSchema.pre("save", function(next) {
 
       // override the cleartext password with the hashed one
       user["password"] = hash;
-      const cart = await new ProductCart({farmer : user["_id"]}).save()
+      const cart = await new ProductCart({ farmer: user["_id"] }).save();
 
       user["productCart"] = cart._id;
-      logger.debug("cart created")
+      logger.debug("cart created");
       next();
     });
   });
 });
+
+FarmerSchema.methods.getFullname = function() {
+  const farmer = this;
+  return `${farmer["firstName"]} ${farmer["lastname"]}`;
+};
 
 export default mongoose.model<IFarmerDoc>("Farmer", FarmerSchema);
