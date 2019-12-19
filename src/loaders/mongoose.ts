@@ -7,7 +7,8 @@ export default async function() {
   if (env == "production") {
     //   prod
 
-    url = `mongodb://tenx:10xxpassword@ds141185.mlab.com:41185/agtech-db`;
+    // url = `mongodb://tenx:10xxpassword@ds141185.mlab.com:41185/agtech-db`;
+    url = "mongodb://localhost:27017/node-agtech-prod";
   } else if (env == "development") {
     //   dev
     url = "mongodb://localhost:27017/node-agtech-dev";

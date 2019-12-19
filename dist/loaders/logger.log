@@ -82,3 +82,9 @@
 {"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 12:20:03"}
 {"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 12:20:03"}
 {"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 12:20:03"}
+{"message":" 👽  Starting server in undefined mode   👽 ","level":"info","timestamp":"2019-12-19 12:24:22"}
+{"message":"Logger set to DI Container","level":"info","timestamp":"2019-12-19 12:24:22"}
+{"message":"express loaded","level":"info","timestamp":"2019-12-19 12:24:22"}
+{"message":"mongoose loaded","level":"info","timestamp":"2019-12-19 12:24:22"}
+{"message":" 💃 Finished loading dependencies 💃","level":"info","timestamp":"2019-12-19 12:24:22"}
+{"message":" 🔥 Listening on http://localhost:3000 🔥","level":"info","timestamp":"2019-12-19 12:24:22"}
