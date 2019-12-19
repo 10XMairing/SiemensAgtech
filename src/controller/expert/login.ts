@@ -36,7 +36,8 @@ export async function login(req: Request, res: Response, next: NextFunction) {
         message: "Authenticated",
         token: generateToken({ _id: expertRecord.id, email, type: "expert" }),
         data: {
-          email
+          email,
+          id: expertRecord._id
         }
       });
   } catch (err) {

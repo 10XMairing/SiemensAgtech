@@ -19,7 +19,8 @@ export async function login(req: Request, res: Response, next: NextFunction) {
       return res.status(400).json({
         message: `Farmer record does not exist with given email ${email}`,
         data: {
-          email
+          email,
+          id: farmerRecord._id
         }
       });
 
@@ -42,7 +43,8 @@ export async function login(req: Request, res: Response, next: NextFunction) {
         message: "Authenticated",
         token: generateToken({ _id: farmerRecord.id, email, type: "farmer" }),
         data: {
-          email
+          email,
+          id: farmerRecord._id
         }
       });
   } catch (err) {
