@@ -9,11 +9,10 @@ export async function register(
   next: NextFunction
 ) {
   try {
-    const { email, password } = req.body;
+    const data = req.body; //data must have firstName , lastName , location(opt), email , password
 
     const farmer = new FarmerModel({
-      email,
-      password
+      ...data
     });
 
     const farmerDoc = await farmer.save();

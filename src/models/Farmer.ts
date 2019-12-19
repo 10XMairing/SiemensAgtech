@@ -10,8 +10,10 @@ const logger: Logger = Container.get("logger");
 export interface IFarmerModel {
   firstName: string;
   lastName: string;
+  bio: string;
   email: string;
   password: string;
+  profileImage: string;
   location: string;
   updatedAt: Date;
   createdAt: Date;
@@ -26,14 +28,11 @@ const FarmerSchema = new mongoose.Schema(
   {
     firstName: { type: String },
     lastName: { type: String },
+    bio: { type: String },
+    profileImage: { type: String },
+    location: { type: String },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-
-    productCart: {
-      ref: "ProductCart",
-      unique: true,
-      type: mongoose.Schema.Types.ObjectId
-    }
+    password: { type: String, required: true }
   },
   {
     timestamps: true
