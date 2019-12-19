@@ -3,6 +3,7 @@ import { Router } from "express";
 import { celebrate, Joi } from "celebrate";
 
 import * as Controller from "../../../controller/crop";
+import { getAllDistPrices } from "../../../controller/distPrices";
 import { checkFarmer, checkExpert, checkBusiness } from "../../../middleware";
 const router = Router();
 
@@ -23,6 +24,9 @@ router.post(
 
 router.get("/", (req, res, next) => {
   Controller.getAll(req, res, next);
+});
+router.get("/prices", (req, res, next) => {
+  getAllDistPrices(req, res, next);
 });
 
 router.get("/farmer/me", checkFarmer, (req, res, next) => {

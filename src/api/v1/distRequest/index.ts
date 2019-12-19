@@ -7,15 +7,14 @@ import { checkFarmer, checkExpert, checkBusiness } from "../../../middleware";
 const router = Router();
 
 router.post(
-  "/agent=:distributor",
+  "/create",
   checkFarmer,
   celebrate({
     body: Joi.object().keys({
       cropName: Joi.string().required(),
       description: Joi.string().required(),
       location: Joi.string().required(),
-      expectedPriceTotal: Joi.number().required(),
-      expectedProduce: Joi.number().required()
+      quantity: Joi.number().required()
     })
   }),
   (req, res, next) => {

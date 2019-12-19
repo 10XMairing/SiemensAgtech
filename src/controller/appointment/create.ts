@@ -13,6 +13,13 @@ export async function create(req: Request, res: Response, next: NextFunction) {
 
     const data = req.body; //price,location,description
 
+    // check if expert data exists
+    const expDoc = await ExpertModel.findById(expert);
+    if (!expDoc)
+      throw new Error(
+        "Expert with given id doesnot exist or maly have been deleted"
+      );
+
     const appointment = new AppointmentModel({
       farmer,
       expert,

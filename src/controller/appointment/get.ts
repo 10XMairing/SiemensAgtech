@@ -73,7 +73,9 @@ export async function getAppointmentForFarmer(
   try {
     //  requires authentication
     const farmer = req["userData"]._id;
-    const appointments = await AppointmentModel.find({ farmer });
+    const appointments = await AppointmentModel.find({ farmer })
+      .populate("farmer")
+      .populate("expert");
 
     return res.status(200).json({
       message: "All appointments for farmer",

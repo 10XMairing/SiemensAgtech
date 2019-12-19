@@ -7,24 +7,11 @@ export async function create(req: Request, res: Response, next: NextFunction) {
   try {
     // user must be authenticted as farmer
     const reqFarmer = req["userData"]._id;
-    const reqDistributor = req.params.distributor; //eq id
-
-    const {
-      cropName,
-      description,
-      expectedPriceTotal,
-      expectedProduce,
-      location
-    } = req.body;
+    const data = req.body;
 
     const eqRequestRecord = new DistRequestModel({
-      cropName,
-      description,
-      location,
-      expectedPriceTotal,
-      expectedProduce,
-      farmer : reqFarmer,
-      distributor : reqDistributor
+      ...data,
+      farmer: reqFarmer
     });
 
     const eqRequestDoc = await eqRequestRecord.save();

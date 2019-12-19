@@ -3,20 +3,22 @@ import { Logger } from "winston";
 import { Container } from "typedi";
 import ProductModel from "./Product";
 
+import * as fs from "fs";
+import * as path from "path";
+
 const logger: Logger = Container.get("logger");
 
 export interface IDistRequestModel {
   cropName: string; //potato tomato aalu paalu
   description: string;
-  expectedPriceTotal: number; //price of total expected produce
-  expectedProduce: number; //in kgs
   location: string;
-  rate: number; //expPrice/expProduc   rs/kg
+  rate: number;
+  distCost: number;
+  total: number;
+  farmerRevenue: number;
   farmer: any; //farmer ref
-  distributor: any; //distributor ref
   paymentStatus: boolean;
   confirmStatus: boolean;
-  price: number; //cost for storage and transport // should come from distributors base price
 }
 
 export interface IDistRequestDoc extends mongoose.Document, IDistRequestModel {}
@@ -26,19 +28,43 @@ const DistRequestSchema = new mongoose.Schema(
     cropName: { type: String, required: true, lowercase: true, trim: true },
     description: { type: String, required: true },
     location: { type: String, required: true },
-    expectedPriceTotal: { type: Number, required: true },
-    expectedProduce: { type: Number, required: true },
+    quantity: { type: Number, required: true },
+    total: { type: Number },
     rate: { type: Number },
-    price: { type: Number },
+    farmerRevenue: { type: Number },
+    distCost: { type: Number },
     paymentStatus: { type: Boolean, default: false },
     confirmStatus: { type: Boolean, default: false },
-    farmer: { type: mongoose.Schema.Types.ObjectId, ref: "Farmer" },
-    distributor: { type: mongoose.Schema.Types.ObjectId, ref: "Distributor" }
+    farmer: { type: mongoose.Schema.Types.ObjectId, ref: "Farmer" }
   },
   {
     timestamps: true
   }
 );
+
+DistRequestSchema.pre("save", function(next) {
+  const request = this;
+  const name = request["cropName"];
+  const quantity = request["quantity"];
+
+  let rawdata = fs.readFileSync(path.join(__dirname, "../data/prices.json"));
+  let prices: Object = JSON.parse(rawdata.toString());
+
+  if (!prices.hasOwnProperty(name))
+    next(
+      new Error(
+        "The Distributor doest not currently accept this crop type . go to api/crop/prices for details"
+      )
+    );
+  else {
+    const price = prices[name];
+    request["total"] = quantity * price;
+    request["rate"] = price;
+    request["distCost"] = 0.2 * request["total"]; //20 % of market price
+    request["farmerRevenue"] = request["total"] - request["distCost"];
+    next();
+  }
+});
 
 export default mongoose.model<IDistRequestDoc>(
   "DistributionRequest",
