@@ -3,6 +3,10 @@ import AppointmentModel from "../../models/Appointment";
 import ExpertModel from "../../models/Expert";
 
 import eventDispatch from "event-dispatch";
+import { Logger } from "winston";
+import { Container } from "typedi";
+
+const logger: Logger = Container.get("logger");
 
 // inputs email , password
 
@@ -39,6 +43,8 @@ export async function create(req: Request, res: Response, next: NextFunction) {
       details: appointmentDoc
     });
   } catch (err) {
+    logger.debug(err);
+
     req["status"] = 400;
     next(err);
   }

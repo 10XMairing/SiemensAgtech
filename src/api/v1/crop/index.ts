@@ -31,7 +31,7 @@ router.get("/", (req, res, next) => {
 router.get("/prices", (req, res, next) => {
   getAllDistPrices(req, res, next);
 });
-router.get(
+router.post(
   "/price/predict",
   celebrate({
     body: Joi.object().keys({
