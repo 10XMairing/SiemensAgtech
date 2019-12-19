@@ -5,7 +5,9 @@ import AppointmentModel from "../../models/Appointment";
 
 export async function getAll(req: Request, res: Response, next: NextFunction) {
   try {
-    const appointments = await AppointmentModel.find({});
+    const appointments = await AppointmentModel.find({})
+      .populate("farmer")
+      .populate("expert");
 
     return res.status(200).json({
       message: "required for test only",
@@ -26,7 +28,9 @@ export async function getAppointmentForExpert(
   try {
     //  requires authentication
     const expert = req["userData"]._id;
-    const appointments = await AppointmentModel.find({ expert });
+    const appointments = await AppointmentModel.find({ expert })
+      .populate("farmer")
+      .populate("expert");
 
     return res.status(200).json({
       message: "All appointments for expert",
