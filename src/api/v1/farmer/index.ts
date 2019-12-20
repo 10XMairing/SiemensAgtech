@@ -34,6 +34,7 @@ router.patch(
       firstName: Joi.string(),
       lastName: Joi.string(),
       location: Joi.string(),
+      token: Joi.string(),
       profileImage: Joi.string(),
       bio: Joi.string()
     })

@@ -48,7 +48,10 @@ export async function updateStatus(
       // find farmer email
       const farmerDoc = await FarmerModel.findById(updated.farmer);
 
-      eventDispatcher.dispatch("appointment-confirm", farmerDoc.email);
+      eventDispatcher.dispatch("appointment-confirm", {
+        to: farmerDoc.email,
+        token: farmerDoc.token
+      });
 
       return res.status(200).json({
         message: "Appointment updated",

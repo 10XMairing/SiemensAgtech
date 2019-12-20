@@ -1,6 +1,7 @@
 const env = process.env.NODE_ENV || "development";
 
 import GMAIL from "./gmail";
+import FCM from "./fcm";
 export default {
   BASE_URL: env == "production" ? process.env.BASE_URL : "http://localhost",
   PORT_HTTPS: process.env.PORT_HTTPS || 3000,
@@ -20,5 +21,6 @@ export default {
   MLAB_USER: process.env.MLAB_USER,
   MLAB_PASSWORD: process.env.MLAB_PASSWORD,
   CONFIRM_EMAIL_KEY: process.env.CONFIRM_EMAIL_KEY,
-  GMAIL
+  GMAIL,
+  FCM
 };

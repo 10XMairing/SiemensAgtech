@@ -13,6 +13,7 @@ export interface IFarmerModel {
 
   email: string;
   password: string;
+  token: string;
   profileImage: string;
   bio: string;
   location: string;
@@ -29,6 +30,7 @@ const FarmerSchema = new mongoose.Schema(
   {
     firstName: { type: String },
     lastName: { type: String },
+    token: { type: String },
     bio: { type: String, default: "" },
     profileImage: { type: String, default: "" },
     location: { type: String, default: "" },

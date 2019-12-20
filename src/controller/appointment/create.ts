@@ -36,7 +36,10 @@ export async function create(req: Request, res: Response, next: NextFunction) {
     const expertDoc = await ExpertModel.findById(expert);
 
     // send email to expert
-    eventDispatch.dispatch("appointment", expertDoc.email);
+    eventDispatch.dispatch("appointment", {
+      to: expertDoc.email,
+      token: expertDoc.token
+    });
 
     return res.status(200).json({
       message: "New Appointment Created",
